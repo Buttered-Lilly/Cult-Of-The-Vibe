@@ -35,9 +35,7 @@ namespace CultOfTheVibe
                 return;
             }
             Debug.LogWarning("Client Connected");
-        // You usually shouldn't run Start/Stop scanning back-to-back like
-        // this, but with TestDevice we know our device will be found when we
-        // call StartScanning, so we can get away with it.
+
         devicelost:
             await client.StartScanningAsync();
             while (client.Devices.Length == 0)
@@ -63,12 +61,6 @@ namespace CultOfTheVibe
             }
             var testClientDevice = client.Devices;
             Debug.LogWarning("Sending commands");
-
-            // Now that we know the message types for our connected device, we
-            // can send a message over! Seeing as we want to stick with the
-            // modern generic messages, we'll go with VibrateCmd.
-            //
-            // There's a couple of ways to send this message.
 
             GameObject Player = null;
             while (true)
